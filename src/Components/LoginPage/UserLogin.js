@@ -42,9 +42,8 @@ const UserLogin = () => {
       <div className="login-left">
         <h1>🏥 Smart Health Monitoring</h1>
         <p>
-          Track hospital disease reports,
-          analytics, and patient trends in
-          real time.
+          Track hospital disease reports, analytics,
+          and patient trends in real time.
         </p>
       </div>
 
@@ -72,26 +71,18 @@ const UserLogin = () => {
 
           <button onClick={login}>Login</button>
 
-          <button
-            onClick={() => setOpen(true)}
-          >
+          <button onClick={() => setOpen(true)}>
             Create Account
           </button>
 
-          <button
-            onClick={() =>
-              navigate("/admin")
-            }
-          >
+          <button onClick={() => navigate("/admin")}>
             Admin Login
           </button>
         </div>
       </div>
 
       {open && (
-        <SignupModal
-          close={() => setOpen(false)}
-        />
+        <SignupModal close={() => setOpen(false)} />
       )}
     </div>
   );

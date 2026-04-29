@@ -39,9 +39,8 @@ const AdminLogin = () => {
       <div className="admin-login-left">
         <h1>🏥 Admin Control Portal</h1>
         <p>
-          Manage hospital reports, disease
-          records, and daily case entries
-          from one smart dashboard.
+          Manage hospital reports, disease records,
+          and daily case entries from one dashboard.
         </p>
       </div>
 
@@ -71,11 +70,7 @@ const AdminLogin = () => {
             Login
           </button>
 
-          <button
-            onClick={() =>
-              navigate("/")
-            }
-          >
+          <button onClick={() => navigate("/")}>
             Back to User Login
           </button>
         </div>

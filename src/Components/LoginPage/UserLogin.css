@@ -28,7 +28,6 @@
 .login-left p {
   font-size: 1.2rem;
   color: #8ab4f8;
-  max-width: 500px;
 }
 
 .login-right {
@@ -77,4 +76,29 @@
   color: white;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .login-layout {
+    flex-direction: column;
+  }
+
+  .login-left {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .login-left h1 {
+    font-size: 2rem;
+  }
+
+  .login-right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-card {
+    padding: 25px;
+  }
 }

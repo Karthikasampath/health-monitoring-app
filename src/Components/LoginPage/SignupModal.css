@@ -44,4 +44,13 @@
     #007bff
   );
   color: white;
+  cursor: pointer;
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .modal-card {
+    width: 90%;
+    padding: 25px;
+  }
 }

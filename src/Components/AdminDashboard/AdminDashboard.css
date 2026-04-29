@@ -116,3 +116,39 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0, 229, 255, 0.5);
 }
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .admin-sidebar ul {
+    display: flex;
+    gap: 10px;
+  }
+
+  .admin-main {
+    padding: 20px;
+  }
+
+  .admin-form-card {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr; /* stack inputs */
+  }
+
+  button {
+    font-size: 0.9rem;
+  }
+}
