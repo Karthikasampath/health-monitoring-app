@@ -1,0 +1,11 @@
+.App{
+    text-align:center;
+}
+
+button{
+    transition:0.3s;
+}
+
+input{
+    font-size:14px;
+}

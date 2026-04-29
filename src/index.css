@@ -1,0 +1,36 @@
+/* index.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #050d1a;
+  --glass-bg: rgba(16, 35, 65, 0.45);
+  --glass-border: rgba(43, 115, 203, 0.3);
+  --glass-border-light: rgba(0, 240, 255, 0.4);
+  --accent-cyan: #00e5ff;
+  --accent-blue: #007bff;
+  --text-main: #ffffff;
+  --text-muted: #8ab4f8;
+  --btn-gradient: linear-gradient(90deg, var(--accent-cyan) 0%, var(--accent-blue) 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(0, 119, 255, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.1), transparent 25%);
+  color: var(--text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Base Input & Button Reset for the whole app */
+input {
+  font-family: 'Inter', sans-serif;
+}
