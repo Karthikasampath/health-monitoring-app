@@ -6,6 +6,8 @@ import "./AdminLogin.css";
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // ✅ ADDED
+
   const navigate = useNavigate();
 
   const login = async () => {
@@ -57,14 +59,34 @@ const AdminLogin = () => {
             }
           />
 
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) =>
-              setPassword(e.target.value)
-            }
-          />
+          {/* ✅ PASSWORD WITH EYE ICON */}
+          <div style={{ position: "relative" }}>
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Enter Password"
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+            />
+
+            <span
+              onClick={() =>
+                setShowPassword(!showPassword)
+              }
+              style={{
+                position: "absolute",
+                right: "15px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+                color: "#8ab4f8",
+                fontSize: "18px",
+              }}
+            >
+              {showPassword ? "🙈" : "👁"}
+            </span>
+          </div>
 
           <button onClick={login}>
             Login

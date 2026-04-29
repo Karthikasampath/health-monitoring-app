@@ -9,13 +9,14 @@ const SignupModal = ({ close }) => {
     phone: "",
     email: "",
     password: "",
-    location: "", // ✅ ADDED
+    location: "",
   });
+
+  const [showPassword, setShowPassword] = useState(false); // ✅ ADDED
 
   const signup = async () => {
     try {
 
-      // ✅ Create user in Supabase Auth
       const { data, error } = await supabase.auth.signUp({
         email: form.email,
         password: form.password,
@@ -37,17 +38,15 @@ const SignupModal = ({ close }) => {
         return;
       }
 
-      // ✅ Normalize location (IMPORTANT)
       const formattedLocation = form.location.toLowerCase().trim();
 
-      // ✅ Insert into profiles table
       const { error: profileError } = await supabase
         .from("profiles")
         .insert({
           id: data.user.id,
           email: form.email,
           role: "user",
-          location: formattedLocation, // ✅ ADDED
+          location: formattedLocation,
         });
 
       if (profileError) {
@@ -56,7 +55,7 @@ const SignupModal = ({ close }) => {
       }
 
       alert("Signup successful 🎉");
-      close(); // ✅ THIS FIXES YOUR ERROR
+      close();
 
     } catch (err) {
       console.log(err);
@@ -66,7 +65,6 @@ const SignupModal = ({ close }) => {
 
   return (
     <div className="modal-overlay">
-
       <div className="modal-card">
 
         <h2>Create Account</h2>
@@ -95,16 +93,35 @@ const SignupModal = ({ close }) => {
           }
         />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={(e) =>
-            setForm({ ...form, password: e.target.value })
-          }
-        />
+        {/* ✅ PASSWORD WITH EYE ICON */}
+        <div style={{ position: "relative" }}>
+          <input
+            type={showPassword ? "text" : "password"}
+            placeholder="Password"
+            value={form.password}
+            onChange={(e) =>
+              setForm({ ...form, password: e.target.value })
+            }
+          />
 
-        {/* ✅ LOCATION INPUT */}
+          <span
+            onClick={() =>
+              setShowPassword(!showPassword)
+            }
+            style={{
+              position: "absolute",
+              right: "15px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              cursor: "pointer",
+              color: "#8ab4f8",
+              fontSize: "18px",
+            }}
+          >
+            {showPassword ? "🙈" : "👁"}
+          </span>
+        </div>
+
         <input
           placeholder="Location (City)"
           value={form.location}
@@ -118,7 +135,6 @@ const SignupModal = ({ close }) => {
         <button onClick={close}>Cancel</button>
 
       </div>
-
     </div>
   );
 };
